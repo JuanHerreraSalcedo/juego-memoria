@@ -38,15 +38,36 @@ ul{
 
 ul li{
     margin: 5px;
+    position: relative;
 }
 
 ul li img{
-    transform: rotateY(180deg);
-    transition: 2s;
-}
-
-ul li img{
+    height: 400px;
+    width: 274px;
     transform: rotateY(0deg);
+    transition: .2s;
+    backface-visibility: hidden;
+}
+ul li img + img{
+    /* background: url(../img/ffviir.jpg); */
+    transform: rotateY(180deg);
+    transition: .2s;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    /* backface-visibility: hidden; */
+}
+
+ul li.fija img,
+ul li.seleccionado img{
+    transform: rotateY(180deg);
+
+}
+
+ul li.fija img + img,
+ul li.seleccionado img + img{
+    transform: rotateY(0deg);
+
 }
 
 footer{
@@ -70,4 +91,29 @@ footer{
 #datos h2{
     line-height: 100%;
     margin: 0; 
+}
+
+body.noscroll{
+    overflow: hidden;
+}
+
+#modal{
+    background:rgba(0, 0, 0, 0.8);
+    display:flex;
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* place-items: center;  */
+    justify-content: center;
+    align-items: center
+
+}
+
+#modal div{
+    background: #fff;
+    padding: 20px 50px;
+    width: 60vw;
+    box-sizing: border-box;
 }
